@@ -15,15 +15,18 @@ import EditableTodoList from "./EditableTodoList";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp() {//initialTodos input
-  // we create a state of todos array initialState = initialTodos
+function TodoApp({initialTodos=[]}) {//initialTodos input
+  // we create a state of todos[] array initialState = initialTodos
   // arrays initial state is based off the props we receive from app.js
   // we have a setToDo fn here
+  const [todo, setTodo] = useState(initialTodos);
 
   /** add a new todo to list */
   function create(newTodo) {
     //let newToDo = {...infoWeGetFromForm?, id = uuid()}
     //setToDo = ...ToDos newToDo
+    const newToDo = {formData};
+
   }
 
   /** update a todo with updatedTodo */
@@ -61,7 +64,7 @@ function TodoApp() {//initialTodos input
 
             <section>
               <h3 className="mb-3">Add Nü</h3>
-              FIXME
+              <TodoForm />
             </section>
           </div>
 
