@@ -36,9 +36,6 @@ function TodoApp({initialTodos=[]}) {
       todo
        ));
 
-    //somehow find an existing Todo by id? and edit properties within? description/title
-    // (item, id) => id === desiredid ? item.description = newValue : item.description = value
-    //setToDo = updates based off id
   }
 
   /** delete a todo by id */
@@ -72,7 +69,11 @@ function TodoApp({initialTodos=[]}) {
 
             <section>
               <h3 className="mb-3">Add Nü</h3>
-              <TodoForm initialFormData={{}} handleSave={create}/>
+              <TodoForm initialFormData={{
+                title: '',
+                description: '',
+                priority: 3
+              }} handleSave={create}/>
             </section>
           </div>
 
