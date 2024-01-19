@@ -12,9 +12,9 @@ import React, { useState } from "react";
 
 
 function TodoForm({ initialFormData, handleSave }) {
-  console.log("initialFormData", initialFormData);
+  // console.log("initialFormData", initialFormData);
   const [formData, setFormData] = useState(initialFormData);
-  console.log("formdata:", formData)
+  // console.log("formdata:", formData)
 
   /** Update form input. */
   function handleChange(evt) {
