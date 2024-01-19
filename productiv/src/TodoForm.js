@@ -6,7 +6,7 @@ import React, { useState } from "react";
  * Props:
  * - initialFormData
  * - handleSave: function to call in parent.
- *
+ * //Include what the handleSave signature is
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
@@ -17,6 +17,7 @@ function TodoForm({ initialFormData, handleSave }) {
   console.log("formdata:", formData)
 
   /** Update form input. */
+  //TODO: turn priority into a number when it comes in.
   function handleChange(evt) {
     const {name, value} = evt.target;
     setFormData(fData => ({
@@ -26,6 +27,8 @@ function TodoForm({ initialFormData, handleSave }) {
   }
 
   /** Call parent function and clear form. */
+
+
   function handleSubmit(evt) {
     evt.preventDefault();
     handleSave(formData);

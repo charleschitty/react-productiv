@@ -17,6 +17,8 @@ function EditableTodo({todo, update, remove}) {
 
 
   /** Toggle if this is being edited */
+  //TODO: we're changing the state depending prior state so use the callback
+  //pattern. Ternary shouldn't have side-effects.
   function toggleEdit() {
     isEditing === false ? setIsEditing(true) : setIsEditing(false);
   }
@@ -32,7 +34,8 @@ function EditableTodo({todo, update, remove}) {
     console.log("HANDLESAVE", formData)
     update(formData);
   }
-
+//FIXME: fix lines that are going over the char limit
+//FIXME: inconsistent indentation in render
   return (
       <div className="EditableTodo">
 

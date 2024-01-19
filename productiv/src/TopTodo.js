@@ -18,7 +18,7 @@ function TopTodo({todos}) {
 
   return <Todo
     id={top.id}
-    key={top.id}
+    key={top.id} //don't need tthe key here unless we're rendering in an array
     title={top.title}
     description={top.description}
     priority={top.priority}
