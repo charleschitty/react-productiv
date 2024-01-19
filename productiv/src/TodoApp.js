@@ -25,14 +25,12 @@ function TodoApp({initialTodos=[]}) {//initialTodos input
   /** add a new todo to list */
   function create(todo) {
     let newTodo = {...todo, id: uuid() };
-    //let newToDo = {...infoWeGetFromForm?, id = uuid()}
-    //setToDo = ...ToDos newToDo
     setTodos(todos => [...todos, newTodo]);
-
-  }
+  };
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
+
     //somehow find an existing Todo by id? and edit properties within? description/title
     // (item, id) => id === desiredid ? item.description = newValue : item.description = value
     //setToDo = updates based off id
@@ -40,9 +38,8 @@ function TodoApp({initialTodos=[]}) {//initialTodos input
 
   /** delete a todo by id */
   function remove(id) {
-    //setTodo = removes based off id filter
-    //setTodo(todos=>todos.filter(todo => id !== todo.id));
-  }
+    setTodos(todos => todos.filter(todo => id !== todo.id));
+  };
 
   //TODO: ternary for to do list appearing if exists and not appearing otherwise
   //TODO:AddTodoList
