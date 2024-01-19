@@ -10,6 +10,7 @@ import EditableTodo from "./EditableTodo";
  *
  * TodoApp -> EditableTodoList -> [ EditableTodo, ... ]
  */
+//just given all of our todos to show
 
 function EditableTodoList() {
   return (

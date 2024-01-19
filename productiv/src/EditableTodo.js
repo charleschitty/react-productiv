@@ -12,17 +12,27 @@ import TodoForm from "./TodoForm";
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
+// fed {title,description,priority} of a single todo
 function EditableTodo() {
 
   /** Toggle if this is being edited */
-  function toggleEdit() { }
+  function toggleEdit() {
+    //if edit button clicked display form --> boolean
+  }
 
   /** Call remove fn passed to this. */
-  function handleDelete() { }
+  function handleDelete() {
+    //remove(id)
+  }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
-  function handleSave(formData) { }
+  function handleSave(formData) {
+    //evt.preventdefault()
+    //update(formData)
+  }
 
+  //when  toggleEdit false --> dont show todoform
+// if (toggleEdit) ? TodoForm handlesave={handlesave} title={todo.title} descr = {todo.descr}: or all this daata below
   return (
       <div className="EditableTodo">
 

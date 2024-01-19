@@ -16,7 +16,10 @@ function TodoForm() {
   function handleChange(evt) { }
 
   /** Call parent function and clear form. */
-  function handleSubmit(evt) { }
+  function handleSubmit(evt) {
+    //evt.preventdefault()
+    //handleSave(formdata)
+   }
 
   return (
       <form className="NewTodoForm" onSubmit={handleSubmit}>
