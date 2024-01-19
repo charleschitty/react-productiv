@@ -14,11 +14,13 @@ import TodoForm from "./TodoForm";
 
 function EditableTodo({todo, update, remove}) {
 
-  let isEditing = false;
+
+  const [isEditing, setIsEditing] = useState(false);
+
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-    return (isEditing === false) ? true : false
+    isEditing === false ? setIsEditing(true) : setIsEditing(false);
   }
 
   /** Call remove fn passed to this. */
