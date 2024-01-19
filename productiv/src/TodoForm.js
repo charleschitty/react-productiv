@@ -27,7 +27,7 @@ function TodoForm({ initialFormData, handleSave }) {
   function handleSubmit(evt) {
     evt.preventdefault();
     handleSave(formData);
-    setformData(initialFormData);
+    setformData(initialFormData); //Does this work tbd
    }
 
   return (

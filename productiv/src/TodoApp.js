@@ -16,10 +16,8 @@ import TodoForm from "./TodoForm";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp({initialTodos=[]}) {//initialTodos input
-  // we create a state of todos[] array initialState = initialTodos
-  // arrays initial state is based off the props we receive from app.js
-  // we have a setToDo fn here
+function TodoApp({initialTodos=[]}) {
+
   const [todos, setTodos] = useState(initialTodos);
 
   /** add a new todo to list */
@@ -30,6 +28,17 @@ function TodoApp({initialTodos=[]}) {//initialTodos input
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
+    setTodos(todos => todos.map(
+      todo => updatedTodo.id === todo.id
+      ?
+      (
+        updatedTodo.title = todo.title,
+        updatedTodo.description = todo.description,
+        updatedTodo.priority = todo.priority
+      )
+      :
+      todo
+       ));
 
     //somehow find an existing Todo by id? and edit properties within? description/title
     // (item, id) => id === desiredid ? item.description = newValue : item.description = value
@@ -41,10 +50,6 @@ function TodoApp({initialTodos=[]}) {//initialTodos input
     setTodos(todos => todos.filter(todo => id !== todo.id));
   };
 
-  //TODO: ternary for to do list appearing if exists and not appearing otherwise
-  //TODO:AddTodoList
-
-  // TopTodos needs prop todos={todos}
   return (
       <main className="TodoApp">
         <div className="row">
@@ -52,7 +57,7 @@ function TodoApp({initialTodos=[]}) {//initialTodos input
           <div className="col-md-6">
             {(todos.length !== 0)
             ?
-            <EditableTodoList />
+            <EditableTodoList todos={todos} update={update} remove={remove} />
             :
             <span className="text-muted">You have no todos.</span>
               }
@@ -71,7 +76,7 @@ function TodoApp({initialTodos=[]}) {//initialTodos input
 
             <section>
               <h3 className="mb-3">Add Nü</h3>
-              <TodoForm HELP={"**************TODO***************"}/>
+              <TodoForm initialFormData={{}} handleSave={create}/>
             </section>
           </div>
 
