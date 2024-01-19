@@ -29,6 +29,7 @@ function EditableTodo({todo, update, remove}) {
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
     toggleEdit();
+    console.log("HANDLESAVE", formData)
     update(formData);
   }
 
@@ -57,6 +58,7 @@ function EditableTodo({todo, update, remove}) {
                     </button>
                   </div>
                   <Todo
+                    key={todo.id}
                     id={todo.id}
                     title={todo.title}
                     description={todo.description}

@@ -31,11 +31,7 @@ function TodoApp({initialTodos=[]}) {
     setTodos(todos => todos.map(
       todo => updatedTodo.id === todo.id
       ?
-      (
-        updatedTodo.title = todo.title,
-        updatedTodo.description = todo.description,
-        updatedTodo.priority = todo.priority
-      )
+      updatedTodo
       :
       todo
        ));

@@ -9,10 +9,17 @@ import React, { useState } from "react";
  *
  * { TodoApp, EditableTodo } -> TodoForm
  */
-
-function TodoForm({ initialFormData, handleSave }) {
-
+const NEW_FORM_DATA={
+  title: "",
+  description: "",
+  priority: 3,
+};
+//FIXME:NOT WORKING - not priority auofilled and not clearing
+// {title:undefined, description, undefined, priority:undefined}
+function TodoForm({ initialFormData = NEW_FORM_DATA, handleSave }) {
+  console.log("initialFormData", initialFormData);
   const [formData, setformData] = useState(initialFormData);
+  console.log("formdata:", formData)
 
   /** Update form input. */
   function handleChange(evt) {
@@ -27,11 +34,7 @@ function TodoForm({ initialFormData, handleSave }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     handleSave(formData);
-    setformData({
-      title: "",
-      description: "",
-      priority: 3,
-    }); //Does this work tbd
+    setformData(initialFormData);
    }
 
   return (
