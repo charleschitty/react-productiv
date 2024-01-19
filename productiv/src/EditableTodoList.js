@@ -16,13 +16,10 @@ function EditableTodoList({todos, update, remove}) {
       <div>
         {todos.map(todo => (
           <EditableTodo
-            id={todo.id}
-            key={todo.id}
-            title={todo.title}
-            description={todo.description}
-            priority={todo.priority}
+            todo={todo}
             update={update}
             remove={remove}
+            key={todo.id}
           />
         ))}
       </div>

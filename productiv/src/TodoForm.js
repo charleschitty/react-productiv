@@ -25,9 +25,13 @@ function TodoForm({ initialFormData, handleSave }) {
 
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
-    evt.preventdefault();
+    evt.preventDefault();
     handleSave(formData);
-    setformData(initialFormData); //Does this work tbd
+    setformData({
+      title: "",
+      description: "",
+      priority: 3,
+    }); //Does this work tbd
    }
 
   return (
