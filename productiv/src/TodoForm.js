@@ -10,7 +10,7 @@ import React, { useState } from "react";
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm() {
+function TodoForm({ initialFormData, handleSave }) {
 
   /** Update form input. */
   function handleChange(evt) { }
@@ -18,7 +18,7 @@ function TodoForm() {
   /** Call parent function and clear form. */
   function handleSubmit(evt) {
     //evt.preventdefault()
-    //handleSave(formdata)
+    //handleSave()
    }
 
   return (

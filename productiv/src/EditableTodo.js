@@ -12,35 +12,36 @@ import TodoForm from "./TodoForm";
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
-// fed {title,description,priority} of a single todo
-function EditableTodo() {
+function EditableTodo({todo, update, remove}) {
+
+  let isEditing = false;
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-    //if edit button clicked display form --> boolean
+    return (isEditing === false) ? true : false
   }
 
   /** Call remove fn passed to this. */
   function handleDelete() {
-    //remove(id)
+    remove(todo.id)
   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
-    //evt.preventdefault()
-    //update(formData)
+    toggleEdit();
+    update(formData);
   }
 
-  //when  toggleEdit false --> dont show todoform
-// if (toggleEdit) ? TodoForm handlesave={handlesave} title={todo.title} descr = {todo.descr}: or all this daata below
   return (
       <div className="EditableTodo">
 
-                EITHER
+              {isEditing === true
 
-                <TodoForm />
+                ?
 
-                OR
+                <TodoForm initialFormData={todo} handleSave={handleSave}/>
+
+                :
 
                 <div className="mb-3">
                   <div className="float-end text-sm-end">
@@ -55,8 +56,14 @@ function EditableTodo() {
                       Del
                     </button>
                   </div>
-                  <Todo />
+                  <Todo
+                    id={todo.id}
+                    title={todo.title}
+                    description={todo.description}
+                    priority={todo.priority}
+                  />
                 </div>
+              }
 
       </div>
   );
